@@ -53,5 +53,4 @@ jobs:
       run: |
           kubectl get deployment
           kubectl get pods
-          minikube service list
-
+          kubectl port-forward svc/homeenergymanagementsystem-service 8080:8080
