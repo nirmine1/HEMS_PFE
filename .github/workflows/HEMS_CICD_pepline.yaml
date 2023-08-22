@@ -51,5 +51,7 @@ jobs:
           kubectl apply -f homeenergymanagementsystem-service.yaml
     - name: Test service URLs
       run: |
+          kubectl get deployment
+          kubectl get pods
           minikube service list
 
