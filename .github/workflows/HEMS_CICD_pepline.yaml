@@ -49,8 +49,4 @@ jobs:
       run: |
           kubectl apply -f homeenergymanagementsystem-deployment.yaml
           kubectl apply -f homeenergymanagementsystem-service.yaml
-    - name: Test service URLs
-      run: |
-          kubectl get deployment
-          kubectl get pods
-          kubectl port-forward svc/homeenergymanagementsystem-service 8080:8080
+   
