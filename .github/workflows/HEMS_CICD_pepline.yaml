@@ -42,7 +42,7 @@ jobs:
     - name: build to minikube
       run: |
         eval $(minikube -p minikube docker-env) 
-        docker build -t nirminedh/homeenergymanagementsystemhems:latest .
+        docker build -t homeenergymanagementsystemhems:latest .
         docker image ls 
           
     - name: Deploy to Minikube
