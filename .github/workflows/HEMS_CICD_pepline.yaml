@@ -52,5 +52,6 @@ jobs:
     - name: Test service URLs
       run: |
                 kubectl get deployment 
+                kubectl get pods
 
       
