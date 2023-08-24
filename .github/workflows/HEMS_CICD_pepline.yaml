@@ -51,5 +51,6 @@ jobs:
           kubectl apply -f homeenergymanagementsystem-service.yaml
     - name: Test service URLs
       run: |
-          kubectl get pod 
-          kubectl get deployment 
+                kubectl get deployment 
+
+      
