@@ -49,6 +49,17 @@ jobs:
       run: |
           kubectl apply -f homeenergymanagementsystem-deployment.yaml
           kubectl apply -f homeenergymanagementsystem-service.yaml
+    - name: Get pod names
+      run: |
+              PODS=$(kubectl get pods -l app=homeenergymanagementsystem -o jsonpath='{.items[*].metadata.name}')
+               echo "Pods: $PODS"
+    - name: Describe pods
+      run: |
+         PODS=$(kubectl get pods -l app=homeenergymanagementsystem -o jsonpath='{.items[*].metadata.name}')
+         for POD in $PODS; do
+         kubectl describe pod $POD
+         done
+
     - name: Test service URLs
       run: |
                 kubectl get deployment 
