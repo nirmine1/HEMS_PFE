@@ -23,9 +23,9 @@ jobs:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
         run: |
-          docker build -t nirminedh/homeenergymanagementsystemhems:latest .
+          docker build -t nirminedh/homeenergymanagementsystemhems .
           echo $DOCKER_PASSWORD | docker login --username $DOCKER_USERNAME --password-stdin
-          docker push nirminedh/homeenergymanagementsystemhems:latest
+          docker push nirminedh/homeenergymanagementsystemhems
  deploy:
 
   name : deploy 
@@ -46,7 +46,7 @@ jobs:
     - name: Pull Docker image from Docker Hub
       run: |
           eval $(minikube docker-env)
-          docker pull nirminedh/homeenergymanagementsystemhems:latest
+          docker pull nirminedh/homeenergymanagementsystemhems
           
     - name: Deploy to Minikube
       run: |
