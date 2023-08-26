@@ -39,11 +39,14 @@ jobs:
           sudo install minikube-linux-amd64 /usr/local/bin/minikube
           minikube start --driver=docker
           
-    - name: build to minikube
+    - name: Configure Docker credentials for Minikube
       run: |
-        eval $(minikube -p minikube docker-env)
-        docker build -f ./Dockerfile -t homeenergymanagementsystemhems:latest .
-        docker image ls 
+          echo "$DOCKER_PASSWORD" | minikube ssh "echo $DOCKER_USERNAME > /tmp/docker-username && echo $DOCKER_PASSWORD > /tmp/docker-password && sudo mv /tmp/docker-username /root/.docker/config.json && sudo chmod 600 /root/.docker/config.json"
+
+    - name: Pull Docker image from Docker Hub
+      run: |
+          eval $(minikube docker-env)
+          docker pull nirminedh/homeenergymanagementsystemhems:latest
           
     - name: Deploy to Minikube
       run: |
