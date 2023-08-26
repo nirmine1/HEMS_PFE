@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: homeenergymanagementsystem
-          image: homeenergymanagementsystemhems:latest # Image qui sera utilisée pour les conteneurs du cluster
-          imagePullPolicy: Never
+          image: homeenergymanagementsystemhems # Image qui sera utilisée pour les conteneurs du cluster
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080 # Le port sur lequel le conteneur s'exécute dans le cluster
