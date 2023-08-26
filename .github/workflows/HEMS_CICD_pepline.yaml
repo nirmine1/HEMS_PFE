@@ -25,7 +25,7 @@ jobs:
         run: |
           docker build -t nirminedh/homeenergymanagementsystemhems:v1.0.0 .
           echo $DOCKER_PASSWORD | docker login --username $DOCKER_USERNAME --password-stdin
-          docker push nirminedh/homeenergymanagementsystemhems
+          docker push nirminedh/homeenergymanagementsystemhems:v1.0.0 .
  deploy:
 
   name : deploy 
