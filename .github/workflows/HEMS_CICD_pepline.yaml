@@ -67,3 +67,4 @@ jobs:
       run: |
                 kubectl get deployment 
                 kubectl get pods
+                kubectl port-forward service/homeenergymanagementsystem-service 80:8080
