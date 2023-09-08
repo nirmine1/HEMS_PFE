@@ -70,4 +70,5 @@ jobs:
        kubectl get pod
        kubectl get deployment
        kubectl describe deployment homeenergymanagementsystem
+       kubectl get events 
       
