@@ -71,4 +71,5 @@ jobs:
        kubectl get deployment
        kubectl get events
        kubectl port-forward service/homeenergymanagementsystem-service 80:8080
+       kubectl describe deployment homeenergymanagementsystem
       
