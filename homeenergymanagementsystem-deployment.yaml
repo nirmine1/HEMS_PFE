@@ -6,7 +6,7 @@ spec:
   selector:
     matchLabels:
       app: homeenergymanagementsystem
-  replicas: 2 # Nombre de répliques qui seront créées pour ce déploiement
+  replicas: 1 # Nombre de répliques qui seront créées pour ce déploiement
   template:
     metadata:
       labels:
