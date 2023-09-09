@@ -33,8 +33,8 @@ jobs:
   runs-on: ubuntu-latest
   steps :
     - uses: actions/checkout@master
-    - name: Set up Minikube
-      uses: engineerd/setup-minikube@v1
+    - name: Start minikube
+      uses: medyagh/setup-minikube@master
       with:
           minikube-version: latest
 
