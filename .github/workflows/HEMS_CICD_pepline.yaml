@@ -33,11 +33,15 @@ jobs:
   runs-on: ubuntu-latest
   steps :
     - uses: actions/checkout@master
-    - name: Install Minikube and Kubectl
+    - name: Set up Minikube
+      uses: engineerd/setup-minikube@v1
+      with:
+          minikube-version: latest
+
+    - name: Start Minikube
       run: |
-          curl -LO "https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64"
-          sudo install minikube-linux-amd64 /usr/local/bin/minikube
           minikube start --driver=docker
+          minikube kubectl -- get pods -A
           
     - name: Configure Docker credentials for Minikube
       run: |
