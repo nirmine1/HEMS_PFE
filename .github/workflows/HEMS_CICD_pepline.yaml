@@ -68,4 +68,5 @@ jobs:
     - name: view events occur in a Kubernetes cluster
       run : |
        kubectl get events 
+       kubectl get pods
       
