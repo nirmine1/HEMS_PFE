@@ -23,7 +23,7 @@ jobs:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
         run: |
-          docker build -t nirminedh/homeenergymanagementsystemhems:v1.0.0 .
+          docker build -f ./Dockerfile -t nirminedh/homeenergymanagementsystemhems:v1.0.0 .
           echo $DOCKER_PASSWORD | docker login --username $DOCKER_USERNAME --password-stdin
           docker push nirminedh/homeenergymanagementsystemhems:v1.0.0
  deploy:
@@ -68,3 +68,13 @@ jobs:
       run : |
        kubectl get events 
        kubectl get pods
+    - name: Get pod names
+      run: |
+              PODS=$(kubectl get pods -l app=homeenergymanagementsystem -o jsonpath='{.items[*].metadata.name}')
+               echo "Pods: $PODS"
+    - name: Describe pods
+      run: |
+         PODS=$(kubectl get pods -l app=homeenergymanagementsystem -o jsonpath='{.items[*].metadata.name}')
+         for POD in $PODS; do
+         kubectl describe pod $POD
+         done         
