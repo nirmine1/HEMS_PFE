@@ -81,5 +81,7 @@ jobs:
          PODS=$(kubectl get pods -l app=homeenergymanagementsystem -o jsonpath='{.items[*].metadata.name}')
          for POD in $PODS; do
          kubectl describe pod $POD
-        
-         done         
+          done         
+    - name: Test service URLs
+      run: |
+          minikube service list
