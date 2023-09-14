@@ -51,7 +51,12 @@ jobs:
       run: |
           minikube start --driver=docker
        
-     
+    - name: Vérifier les sorties kubelet actuelles (facultatif)
+        run:| kubectl get nodes
+
+    - name: Redémarrer le kubelet
+      run: |
+          kubectl delete pod -n kube-system --selector=k8s-app=kubelet
           
     - name: Configure Docker credentials for Minikube
       run: |
@@ -76,4 +81,5 @@ jobs:
     - name: Test service URLs
       run: |
         kubectl get svc
+        kubectl get deployment
           
