@@ -52,7 +52,8 @@ jobs:
           minikube start --driver=docker
        
     - name: Vérifier les sorties kubelet actuelles (facultatif)
-        run:| kubectl get nodes
+        run:| 
+           kubectl get nodes
 
     - name: Redémarrer le kubelet
       run: |
