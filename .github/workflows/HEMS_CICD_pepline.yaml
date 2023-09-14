@@ -68,7 +68,5 @@ jobs:
          
     - name: Test service URLs
       run: |
-        kubectl get svc
-        kubectl get deployment
-        kubectl describe deployment homeenergymanagementsystem
+        minikube service list
           
