@@ -6,7 +6,7 @@ spec: #spécifie l'état souhaité du service
   selector: 
     app: homeenergymanagementsystem 
   ports: #spécifie les ports sur lesquels le service écoutera
-    - protocol: TCP
+    protocol: TCP
     port: 8080 #Définit le port sur lequel le service écoutera
     targetPort: 8080 #spécifie le port sur le pod vers lequel le trafic sera transféré
   type: NodePort #définit le type de service en cours de création. 
