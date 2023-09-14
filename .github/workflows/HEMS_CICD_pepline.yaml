@@ -54,8 +54,11 @@ jobs:
     
     - name: Configure Docker credentials for Minikube
       run: |
-         echo "$DOCKER_PASSWORD" | minikube ssh "echo $DOCKER_USERNAME > /tmp/docker-username && echo $DOCKER_PASSWORD > /tmp/docker-password && sudo mkdir -p /root/.docker && sudo mv /tmp/docker-username /root/.docker/config.json && sudo chmod 600 /root/.docker/config.json"
+        echo "$DOCKER_PASSWORD" | minikube ssh "echo $DOCKER_USERNAME > /tmp/docker-username && echo $DOCKER_PASSWORD > /tmp/docker-password && sudo mkdir -p /root/.docker && sudo mv /tmp/docker-username /root/.docker/config.json && sudo chmod 600 /root/.docker/config.json"
    
+    - name: Redémarrer le kubelet
+      run: |
+          kubectl delete pod -n kube-system --selector=k8s-app=kubelet
     
     - name: Pull Docker image from Docker Hub
       env :
