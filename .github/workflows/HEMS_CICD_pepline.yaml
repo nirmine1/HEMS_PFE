@@ -73,7 +73,7 @@ jobs:
     - name: get events 
       run: |
     
-        kubectl get events    
+        kubectl get events
 
           
          
