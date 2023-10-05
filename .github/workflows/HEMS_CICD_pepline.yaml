@@ -64,12 +64,7 @@ jobs:
       run: |
           kubectl apply -f homeenergymanagementsystem-deployment.yaml
           kubectl apply -f homeenergymanagementsystem-service.yaml
-        
-         
-    - name: get service 
-      run: |
-        kubectl get svc 
-        kubectl get events
+            
     - name: get events 
       run: |
     
