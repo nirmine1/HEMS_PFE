@@ -1,4 +1,4 @@
-name: HEMS CI/CD pepline 
+name: HEMS CI/CD pipeline 
 on:
   push:
     branches: [ "master" ]
